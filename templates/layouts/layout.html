@@ -4,7 +4,20 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Lab conditions - RPi">
+    <meta name="author" content="Peter Dalmaris">
+    <!-- FONT
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+     <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+    <!-- Favicon
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicons/favicon.png') }}">
     
+    {% block header %}{% endblock %}
     {% block errors_header %}{% endblock %}
     
     {% if title %}
@@ -16,18 +29,11 @@
 
 {% block errors %}
     <body>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-              {% for category, message in messages %}
-                  <div class="alert alert-{{ category }}">
-                      {{ message }}
-                  </div>
-              {% endfor %}
-          {% endif %}
-      {% endwith %}
-
       {% block content %}{% endblock %}
-      
-    </body>           
+    </body>
+    
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js" ></script>
+    {% block scriptjs %}{% endblock %}
 {% endblock %}
 </html>
