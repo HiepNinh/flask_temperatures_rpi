@@ -32,27 +32,11 @@ This version contains a single page that reports current temperature and humidit
    // 10. END
    '''
 
-from flask import Flask, request, render_template
-import sys
-import board
-import adafruit_dht
+from flask import Flask
+from blueprints import regist_blueprints
+
 
 app = Flask(__name__)
 app.debug = True # Make this False if you are no longer debugging
 
-@app.route("/")
-def hello():
-   return "Hello World!"
-
-@app.route("/lab_temp")
-def lab_temp():
-   try:
-      dhtDevice = adafruit_dht.DHT22(board.D17)
-      temperature = dhtDevice.temperature
-      humidity = dhtDevice.humidity
-      if humidity is not None and temperature is not None:
-         return render_template("lab_temp.html",temp=temperature,hum=humidity)
-      else:
-       	 return render_template("no_sensor.html")
-   except:
-      return render_template("no_sensor.html")
+regist_blueprints(app)
