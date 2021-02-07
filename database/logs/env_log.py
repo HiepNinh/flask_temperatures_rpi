@@ -5,7 +5,7 @@ import adafruit_dht
 import logging
 
 def log_values(sensor_id, temp, hum):
-	conn=sqlite3.connect('/var/www/lab_app/database/lab_app.db')  #It is important to provide an
+	conn=sqlite3.connect('/var/www/lab_app/database/data/lab_app.db')  #It is important to provide an
 							     #absolute path to the database
 							     #file, otherwise Cron won't be
 							     #able to find it!
