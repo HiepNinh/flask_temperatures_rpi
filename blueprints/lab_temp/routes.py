@@ -8,7 +8,7 @@ lab_temp = Blueprint('lab_temp', __name__)
 
 @lab_temp.route("/lab_temp")
 def show_lab_temp():
-   dhtDevice = adafruit_dht.DHT22(board.D17)
+   dhtDevice = adafruit_dht.DHT22(board.D17, use_pulseio = False)
    temperature = dhtDevice.temperature
    humidity = dhtDevice.humidity
    if humidity is not None and temperature is not None:
