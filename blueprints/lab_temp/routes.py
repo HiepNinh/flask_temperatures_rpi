@@ -7,7 +7,7 @@ lab_temp = Blueprint('lab_temp', __name__)
 
 
 @lab_temp.route("/lab_temp")
-def lab_temp():
+def show_lab_temp():
    try:
       dhtDevice = adafruit_dht.DHT22(board.D17)
       temperature = dhtDevice.temperature
