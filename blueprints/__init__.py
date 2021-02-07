@@ -4,5 +4,5 @@ from blueprints.error.routes import errors
 
 def regist_blueprints(app):
     app.register_blueprint(main)
-    app.regist_blueprint(lab_temp)
-    app.regist_blueprint(errors)
+    app.register_blueprint(lab_temp)
+    app.register_blueprint(errors)
