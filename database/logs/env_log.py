@@ -2,6 +2,7 @@ import sqlite3
 import sys
 import board
 import adafruit_dht
+import logging
 
 def log_values(sensor_id, temp, hum):
 	conn=sqlite3.connect('/var/www/lab_app/database/lab_app.db')  #It is important to provide an
@@ -28,5 +29,6 @@ try:
         log_values("1", temperature, humidity)
     else:
         log_values("0", -999, -999)
-except:
+except Exception:
     log_values("0", -999, -999)
+	logging.exception("Error occured while storing")
