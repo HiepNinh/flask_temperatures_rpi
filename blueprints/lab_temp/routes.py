@@ -1,6 +1,8 @@
 from flask import render_template, Blueprint
 import board
 import adafruit_dht
+import sqlite3
+
 
 
 lab_temp = Blueprint('lab_temp', __name__)
