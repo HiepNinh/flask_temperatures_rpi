@@ -31,4 +31,4 @@ def monitor_history():
 	curs.execute("SELECT * FROM humidities where sensorID != 0")
 	humidities = curs.fetchall()
 	conn.close()
-	return render_template("lab_env_db.html",temp=temperatures,hum=humidities)
+	return render_template("lab_temps/lab_env_db.html",temp=temperatures,hum=humidities)
